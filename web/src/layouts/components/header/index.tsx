@@ -67,7 +67,7 @@ const RagHeader = () => {
     >
       <a href={window.location.origin}>
         <Space
-          size={12}
+          size={8}
           onClick={handleLogoClick}
           className={styles.logoWrapper}
         >

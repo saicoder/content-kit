@@ -108,10 +108,10 @@ export default {
       processDuration: 'Duration',
       progressMsg: 'Progress',
       testingDescription:
-        'Conduct a retrieval test to check if RAGFlow can recover the intended content for the LLM.',
+        'Conduct a retrieval test to check if ContentKit can recover the intended content for the LLM.',
       similarityThreshold: 'Similarity threshold',
       similarityThresholdTip:
-        'RAGFlow employs either a combination of weighted keyword similarity and weighted vector cosine similarity, or a combination of weighted keyword similarity and weighted reranking score during retrieval. This parameter sets the threshold for similarities between the user query and chunks. Any chunk with a similarity score below this threshold will be excluded from the results.',
+        'ContentKit employs either a combination of weighted keyword similarity and weighted vector cosine similarity, or a combination of weighted keyword similarity and weighted reranking score during retrieval. This parameter sets the threshold for similarities between the user query and chunks. Any chunk with a similarity score below this threshold will be excluded from the results.',
       vectorSimilarityWeight: 'Keywords similarity weight',
       vectorSimilarityWeightTip:
         'This sets the weight of keyword similarity in the combined similarity score, either used with vector cosine similarity or with reranking score. The total of the two weights must equal 1.0.',
@@ -158,7 +158,7 @@ export default {
       cancel: 'Cancel',
       rerankModel: 'Rerank model',
       rerankPlaceholder: 'Please select',
-      rerankTip: `If left empty, RAGFlow will use a combination of weighted keyword similarity and weighted vector cosine similarity; if a rerank model is selected, a weighted reranking score will replace the weighted vector cosine similarity. Please be aware that using a rerank model will significantly increase the system's response time.`,
+      rerankTip: `If left empty, ContentKit will use a combination of weighted keyword similarity and weighted vector cosine similarity; if a rerank model is selected, a weighted reranking score will replace the weighted vector cosine similarity. Please be aware that using a rerank model will significantly increase the system's response time.`,
       topK: 'Top-K',
       topKTip: `K chunks will be sent into the rerank model.`,
       delimiter: `Delimiters`,
@@ -501,7 +501,7 @@ This procedure will improve precision of retrieval by adding more information to
       extensionTitle: 'Chrome Extension',
       tokenError: 'Please create API key first.',
       betaError:
-        'Please acquire a RAGFlow API key from the System Settings page first.',
+        'Please acquire a ContentKit API key from the System Settings page first.',
       searching: 'Searching...',
       parsing: 'Parsing',
       uploading: 'Uploading',
