@@ -38,7 +38,7 @@ export default defineConfig({
   proxy: [
     {
       context: ['/api', '/v1'],
-      target: 'http://34.89.51.86/',
+      target: 'https://contentkit.rhapsody.website',
       changeOrigin: true,
       ws: true,
       logger: console,
