@@ -4,8 +4,8 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon, useNavigate } from 'umi';
-import RightPanel from './right-panel';
 
+import SvgIcon from '@/components/svg-icon';
 import { Domain } from '@/constants/common';
 import styles from './index.less';
 
@@ -113,29 +113,13 @@ const Login = () => {
                 onPressEnter={onCheck}
               />
             </Form.Item>
+
             {title === 'login' && (
               <Form.Item name="remember" valuePropName="checked">
                 <Checkbox> {t('rememberMe')}</Checkbox>
               </Form.Item>
             )}
-            <div>
-              {title === 'login' && (
-                <div>
-                  {t('signInTip')}
-                  <Button type="link" onClick={changeTitle}>
-                    {t('signUp')}
-                  </Button>
-                </div>
-              )}
-              {title === 'register' && (
-                <div>
-                  {t('signUpTip')}
-                  <Button type="link" onClick={changeTitle}>
-                    {t('login')}
-                  </Button>
-                </div>
-              )}
-            </div>
+
             <Button
               type="primary"
               block
@@ -147,20 +131,6 @@ const Login = () => {
             </Button>
             {title === 'login' && (
               <>
-                {/* <Button
-                  block
-                  size="large"
-                  onClick={toGoogle}
-                  style={{ marginTop: 15 }}
-                >
-                  <div>
-                    <Icon
-                      icon="local:google"
-                      style={{ verticalAlign: 'middle', marginRight: 5 }}
-                    />
-                    Sign in with Google
-                  </div>
-                </Button> */}
                 {location.host === Domain && (
                   <Button
                     block
@@ -183,7 +153,13 @@ const Login = () => {
         </div>
       </div>
       <div className={styles.loginRight}>
-        <RightPanel></RightPanel>
+        <section className="flex flex-1">
+          <div className="flex flex-col gap-4 mx-10 mb-10 ">
+            <SvgIcon name="login-star" width={70}></SvgIcon>
+            <div className="text-white text-4xl font-medium">{t('title')}</div>
+            <div className="text-white text-lg">{t('description')}</div>
+          </div>
+        </section>
       </div>
     </div>
   );

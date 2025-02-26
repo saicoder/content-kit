@@ -5,7 +5,7 @@ import { useTranslate } from '@/hooks/common-hooks';
 import { useFetchAppConf } from '@/hooks/logic-hooks';
 import { useNavigateWithFromState } from '@/hooks/route-hook';
 import { MessageOutlined, SearchOutlined } from '@ant-design/icons';
-import { Flex, Layout, Radio, Space, theme } from 'antd';
+import { Layout, Space, theme } from 'antd';
 import { MouseEventHandler, useCallback, useMemo } from 'react';
 import { useLocation } from 'umi';
 import Toolbar from '../right-toolbar';
@@ -63,9 +63,10 @@ const RagHeader = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         height: '72px',
+        backgroundColor: '#121926',
       }}
     >
-      <a href={window.location.origin}>
+      <a href={window.location.origin} className="flex">
         <Space
           size={8}
           onClick={handleLogoClick}
@@ -75,7 +76,33 @@ const RagHeader = () => {
           <span className={styles.appName}>{appConf.appName}</span>
         </Space>
       </a>
-      <Space size={[0, 8]} wrap>
+
+      <div className="bg-[#202939] border-[#344054] border rounded-lg flex overflow-hidden">
+        {tagsData.map((item, index) => (
+          <div
+            key={item.name}
+            onClick={handleChange(item.path)}
+            className={`px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-[#364152]
+              ${pathname.startsWith(item.path) ? 'bg-[#364152]' : ''}
+              ${index === 0 ? 'rounded-l-lg' : ''}
+              ${index === tagsData.length - 1 ? 'rounded-r-lg' : ''}
+            `}
+          >
+            <div className="flex items-center justify-center w-5 h-5">
+              <item.icon
+                className={`${pathname.startsWith(item.path) ? 'text-white' : 'text-[#98a1b2]'}`}
+              />
+            </div>
+            <span
+              className={`text-sm ${pathname.startsWith(item.path) ? 'text-white' : 'text-[#98a1b2]'}`}
+            >
+              {item.name}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* <Space size={[0, 8]} wrap className="hidden">
         <Radio.Group
           defaultValue="a"
           buttonStyle="solid"
@@ -107,7 +134,7 @@ const RagHeader = () => {
             </Radio.Button>
           ))}
         </Radio.Group>
-      </Space>
+      </Space> */}
       <Toolbar></Toolbar>
     </Header>
   );

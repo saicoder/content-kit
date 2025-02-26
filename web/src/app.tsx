@@ -56,6 +56,10 @@ function Root({ children }: React.PropsWithChildren) {
         theme={{
           token: {
             fontFamily: 'Inter',
+            colorPrimary: '#4B5565',
+            Button: {
+              primaryShadow: 'none',
+            },
           },
           algorithm:
             themeragflow === 'dark'
